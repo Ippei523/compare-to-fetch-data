@@ -9,12 +9,10 @@ export function AxiosContainer() {
 
   useEffect(() => {
     try {
-      axios
-        .get("https://jsonplaceholder.typicode.com/todo/1")
-        .then((response) => {
-          setData(response.data as TodoType);
-          setLoading(false);
-        });
+      axios.get("http://localhost:3100/item/1").then((response) => {
+        setData(response.data as TodoType);
+        setLoading(false);
+      });
     } catch (error) {
       console.error(error);
       setError(true);
@@ -31,6 +29,14 @@ export function AxiosContainer() {
         <div>
           <h1>{data?.id}</h1>
           <p>{data?.title}</p>
+
+          <button
+            onClick={() => {
+              window.history.back();
+            }}
+          >
+            戻る
+          </button>
         </div>
       )}
     </div>

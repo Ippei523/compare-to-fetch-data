@@ -3,7 +3,7 @@ import { TodoType } from "../interface";
 
 export function TanstackQueryContainer() {
   const fetchTodos = async () => {
-    const response = await fetch("https://jsonplaceholder.typicode.com/todo/1");
+    const response = await fetch("http://localhost:3100/item/1");
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
@@ -21,6 +21,14 @@ export function TanstackQueryContainer() {
     <div>
       <h1>{data?.id}</h1>
       <p>{data?.title}</p>
+
+      <button
+        onClick={() => {
+          window.history.back();
+        }}
+      >
+        戻る
+      </button>
     </div>
   );
 }
