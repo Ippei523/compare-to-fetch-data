@@ -5,20 +5,28 @@ import { TodoType } from "../interface";
 export function AxiosContainer() {
   const [data, setData] = useState<TodoType>();
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/todo/1")
-      .then((response) => {
-        setData(response.data as TodoType);
-        setLoading(false);
-      });
+    try {
+      axios
+        .get("https://jsonplaceholder.typicode.com/todo/1")
+        .then((response) => {
+          setData(response.data as TodoType);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+      setError(true);
+    }
   }, []);
 
   return (
     <div>
       {loading ? (
         <div>Loading...</div>
+      ) : error ? (
+        <div>Error</div>
       ) : (
         <div>
           <h1>{data?.id}</h1>
