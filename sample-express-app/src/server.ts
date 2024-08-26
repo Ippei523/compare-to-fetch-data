@@ -31,8 +31,13 @@ app.get('/', (req: Request, res: Response) => {
 
 app.get('/item/:itemId', (req: Request, res: Response) => {
     const id = req.params.itemId;
+    const response = {
+        id: items[Number(id) - 1].id,
+        title: items[Number(id) - 1].title,
+        pageLimit: items.length,
+    };
     console.log(`GET /item/${id}`);
-    res.json(items[Number(id) - 1]);
+    res.json(response);
 });
 
 app.post('/items', (req: Request, res: Response) => {

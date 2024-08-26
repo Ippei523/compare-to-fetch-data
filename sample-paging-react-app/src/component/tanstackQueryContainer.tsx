@@ -27,7 +27,7 @@ export function TanstackQueryContainer() {
       <button
         onClick={() => {
           setPage(page - 1);
-          console.log("page: ", page);
+          console.log("Page: ", page);
           console.log("data?.id: ", data?.id);
           console.log("data?.title: ", data?.title);
         }}
