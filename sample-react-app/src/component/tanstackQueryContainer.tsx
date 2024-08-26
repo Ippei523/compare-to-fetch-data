@@ -3,11 +3,10 @@ import { TodoType } from "../interface";
 import { useState } from "react";
 
 export function TanstackQueryContainer() {
-  const [page, setPage] = useState(1);
   const { data, error, isLoading } = useQuery({
-    queryKey: ["example", page],
+    queryKey: ["example"],
     queryFn: async (): Promise<TodoType> => {
-      const response = await fetch(`http://localhost:3100/item/${page}`);
+      const response = await fetch("http://localhost:3100/item/1");
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -22,27 +21,6 @@ export function TanstackQueryContainer() {
     <div>
       <h1>{data?.id}</h1>
       <p>{data?.title}</p>
-
-      {/* ページネーション */}
-      <button
-        onClick={() => {
-          setPage(page - 1);
-          console.log("page: ", page);
-          console.log("data?.id: ", data?.id);
-          console.log("data?.title: ", data?.title);
-        }}
-        disabled={page === 1}
-      >
-        Previous
-      </button>
-      <button
-        onClick={() => {
-          setPage(page + 1);
-        }}
-        disabled={page === data?.pageLimit}
-      >
-        Next
-      </button>
     </div>
   );
 }
