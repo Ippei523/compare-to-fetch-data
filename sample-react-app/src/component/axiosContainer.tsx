@@ -28,7 +28,8 @@ export function AxiosContainer() {
         <div>Error</div>
       ) : (
         <div>
-          <h1>{data?.id}</h1>
+          <h1>axios</h1>
+          <p>{data?.id}</p>
           <p>{data?.title}</p>
         </div>
       )}

@@ -13,8 +13,8 @@ function App() {
         <header className="App-header">
           <h1>React Query Sample</h1>
           {/* <SwrContainer /> */}
-          <AxiosContainer />
-          {/* <TanstackQueryContainer /> */}
+          {/* <AxiosContainer /> */}
+          <TanstackQueryContainer />
         </header>
       </div>
     </QueryClientProvider>

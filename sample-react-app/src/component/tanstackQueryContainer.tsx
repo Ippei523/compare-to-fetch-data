@@ -18,7 +18,8 @@ export function TanstackQueryContainer() {
 
   return (
     <div>
-      <h1>{data?.id}</h1>
+      <h1>TanStack Query</h1>
+      <p>{data?.id}</p>
       <p>{data?.title}</p>
     </div>
   );

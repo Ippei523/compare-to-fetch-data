@@ -27,7 +27,8 @@ export function SwrContainer() {
 
   return (
     <div>
-      <h1>{data?.id}</h1>
+      <h1>SWR</h1>
+      <p>{data?.id}</p>
       <p>{data?.title}</p>
     </div>
   );
