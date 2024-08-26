@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { TodoType } from "../interface";
-import { useState } from "react";
 
 export function TanstackQueryContainer() {
   const { data, error, isLoading } = useQuery({
